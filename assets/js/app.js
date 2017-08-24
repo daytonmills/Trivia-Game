@@ -37,7 +37,7 @@ var questions = [{
 
 var timer =
 {
-    time: 120,
+    time: 60,
 
     start: function ()
     {
@@ -61,10 +61,6 @@ var timer =
         {
             timer.stop();
         }
-        $("#submit").on("click", function ()
-        {
-            gameOver();
-        });
     },
 }
 
@@ -108,6 +104,11 @@ function loadAnswers() {
         }
     }
     $(".questions").append("<button class='btn btn-lg btn-outline-danger' id='submit'>Submit</button>")
+
+    $("#submit").on("click", function ()
+    {
+        timer.stop();
+    });
 }
 
 $(document).ready(function ()
@@ -118,5 +119,5 @@ $(document).ready(function ()
         $(".start").hide();
         loadAnswers();
         timer.start();
-    });
+    })
 });
