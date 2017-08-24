@@ -8,15 +8,20 @@
 <body>
     <div class="container-fluid">
         <div class="row">
+            <img id="bg" src="assets/img/bg.jpg"/>
+        </div>
+        <div class="row">
             <div class="start">
-                <button id="start">Start</button>
+                <img id="logo" src="assets/img/logo.png"/>
+                <h1>Trivia</h1>
+                <button class="btn btn-lg btn-outline-danger" id="start">Start</button>
             </div>
 
-            <div class="timer">
-                <p id="time">00:00</p>
+            <div class="questions">
+                <div class="timer">
+                    <p>Time Remaining: <span id="time">120</span></p>
+                </div>
             </div>
-
-            <div class="questions"></div>
 
             <div class="result">
                 <p>Correct: <span id="correct">0</span></p>

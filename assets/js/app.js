@@ -37,7 +37,7 @@ var questions = [{
 
 var timer =
 {
-    time: 10,
+    time: 120,
 
     start: function ()
     {
@@ -61,6 +61,10 @@ var timer =
         {
             timer.stop();
         }
+        $("#submit").on("click", function ()
+        {
+            gameOver();
+        });
     },
 }
 
@@ -91,6 +95,7 @@ function gameOver()
 }
 
 function loadAnswers() {
+    $(".questions, .timer").show();
     for (var i = 0; i < questions.length; i++)
     {
         $(".questions").append("<div id=q"+ i +"></div>");
@@ -102,13 +107,15 @@ function loadAnswers() {
             $("#q" + i).append("<input type='radio' name='"+ i +"' value='" + questions[i].options[a] +"'>" +questions[i].options[a] + "<br/>");
         }
     }
+    $(".questions").append("<button class='btn btn-lg btn-outline-danger' id='submit'>Submit</button>")
 }
 
 $(document).ready(function ()
 {
-    $(".result").hide();
+    $(".result, .timer, .questions").hide();
     $("#start").on("click", function ()
     {
+        $(".start").hide();
         loadAnswers();
         timer.start();
     });
